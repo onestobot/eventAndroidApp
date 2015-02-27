@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <ImageView
+        android:id="@+id/img"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scaleType="fitXY"
+        />
+
+    <TextView
+        android:id="@+id/lbl3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_margin="@dimen/pad_5dp"
+        android:text="TextView"
+        android:textColor="@color/main_color_gray_dk"
+        android:shadowDx="1"
+        android:shadowDy="1"
+        android:shadowColor="@color/white"
+        android:shadowRadius="1"
+        android:paddingLeft="@dimen/pad_5dp"
+        android:paddingBottom="@dimen/pad_5dp"
+        android:textSize="@dimen/txt_12sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/img"
+        android:background="@drawable/semi_trans_bg"
+        android:gravity="center_vertical"
+        android:orientation="vertical"
+        android:paddingLeft="@dimen/pad_10dp"
+        android:paddingRight="@dimen/pad_10dp" >
+
+        <TextView
+            android:id="@+id/lbl1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TextView"
+            android:textColor="@color/main_color_orange"
+            android:textSize="@dimen/txt_14sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/lbl2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:lines="1"
+            android:text="TextView TextView TextView TextView TextViewTextViewTextView TextView"
+            android:textColor="@color/white"
+            android:textSize="@dimen/txt_14sp" />
+    </LinearLayout>
+
+</RelativeLayout>

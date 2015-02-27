@@ -1,0 +1,9 @@
+com.events
+com.events.calendar
+com.events.custom
+com.events.database
+com.events.model
+com.events.ui
+com.events.utils
+com.events.web
+com.google.android.gms

@@ -1,0 +1,75 @@
+<android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/drawer_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/main_color_gray_lt" >
+
+    <LinearLayout
+        android:id="@+id/main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical" >
+ <LinearLayout
+     android:id="@+id/vTabs"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/main_color_gray_dk"
+        android:orientation="horizontal"
+        android:visibility="gone" >
+
+        <Button
+            android:id="@+id/tab1"
+            style="@style/tab_btn"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:enabled="false"
+            android:text="@string/my_cal" />
+
+        <View
+            android:id="@+id/view1"
+            style="@style/tab_divider"
+            android:layout_width="@dimen/pad_1dp"
+            android:layout_height="match_parent" />
+
+        <Button
+            android:id="@+id/tab2"
+            style="@style/tab_btn"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/my_fav" />
+        <View
+            android:id="@+id/view1"
+            style="@style/tab_divider"
+            android:layout_width="@dimen/pad_1dp"
+            android:layout_height="match_parent" />
+
+        <Button
+            android:id="@+id/tab3"
+            style="@style/tab_btn"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/my_tkcts" />
+    </LinearLayout>
+        <FrameLayout
+            android:id="@+id/content_frame"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clickable="true" />
+    </LinearLayout>
+
+    <ListView
+        android:id="@+id/left_drawer"
+        android:layout_width="240dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:background="@color/main_color_gray_lt"
+        android:choiceMode="singleChoice"
+        android:divider="@null"
+        android:dividerHeight="0dp"
+        android:footerDividersEnabled="false"
+        android:headerDividersEnabled="false" />
+
+</android.support.v4.widget.DrawerLayout>

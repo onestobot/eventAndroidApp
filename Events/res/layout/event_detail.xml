@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/ss"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical" >
+
+        <com.google.android.gms.maps.MapView
+            android:id="@+id/map"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/pad_180dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="@dimen/pad_10dp" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:orientation="vertical"
+                android:paddingLeft="@dimen/pad_10dp"
+                android:paddingRight="@dimen/pad_10dp"
+                android:paddingTop="@dimen/pad_10dp" >
+
+                <TextView
+                    android:id="@+id/lblTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Milan Fashion Week"
+                    android:textColor="@color/main_color_orange"
+                    android:textSize="@dimen/txt_15sp" />
+
+                <TextView
+                    android:id="@+id/lblAddress"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Milan, Via Orefici 7, 20123 Italy"
+                    android:textColor="@color/main_color_gray_dk"
+                    android:textSize="@dimen/txt_14sp" />
+
+                <LinearLayout
+                    android:id="@+id/da"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" >
+
+                    <TextView
+                        android:id="@+id/textView1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="@dimen/pad_3dp"
+                        android:text="@string/date"
+                        android:textColor="@color/main_color_orange"
+                        android:textSize="@dimen/txt_14sp" />
+
+                    <TextView
+                        android:id="@+id/lblDate"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="12/23/13   12:00AM - 3:00PM  "
+                        android:textColor="@color/main_color_gray_dk"
+                        android:textSize="@dimen/txt_14sp" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:lines="1"
+                android:text="@string/dots"
+                android:textColor="@color/main_color_gray"
+                android:textSize="@dimen/txt_15sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="@dimen/pad_5dp"
+                android:paddingLeft="@dimen/pad_10dp"
+                android:paddingRight="@dimen/pad_10dp"
+                android:paddingTop="@dimen/pad_5dp"
+                android:text="@string/description"
+                android:textColor="@color/main_color_orange"
+                android:textSize="@dimen/txt_15sp"
+                android:background="@color/white" />
+            
+            <TextView
+                    android:id="@+id/lblDesc"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    android:text="Milan, Via Orefici 7, 20123 Italy"
+                    android:textColor="@color/main_color_gray_dk"
+                    android:textSize="@dimen/txt_14sp"
+                     android:paddingLeft="@dimen/pad_10dp"
+                android:paddingRight="@dimen/pad_10dp" 
+                android:paddingBottom="@dimen/pad_10dp"
+                android:autoLink="all"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/pad_10dp"
+                android:layout_marginTop="@dimen/pad_10dp"
+                android:gravity="center" >
+
+                <TextView
+                    android:id="@+id/lblCost"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/free_event"
+                    android:textColor="@color/main_color_gray_dk"
+                    android:textSize="@dimen/txt_18sp" />
+
+                <Button
+                    android:id="@+id/btnReg"
+                    style="@style/btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/pad_10dp"
+                    android:background="@drawable/reg_btn_bg"
+                    android:text="@string/reg_now"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/txt_18sp" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+</ScrollView>
