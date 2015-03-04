@@ -15,6 +15,7 @@ import org.json.JSONObject;
 import com.events.database.DbHelper;
 import com.events.model.Event;
 import com.events.model.Feed;
+import com.events.model.MemberResource;
 import com.events.model.Status;
 import com.events.utils.Commons;
 
@@ -166,79 +167,119 @@ public class WebHelper extends WebAccess
 	 * 
 	 * @return the feed list
 	 */
-	public static ArrayList<Feed> getFeedList()
-	{
-		TreeSet<Feed> al = new TreeSet<Feed>(new Comparator<Feed>() {
+    public static ArrayList<Feed> getFeedList()
+    {
+        TreeSet<Feed> al = new TreeSet<Feed>(new Comparator<Feed>() {
 
-			@Override
-			public int compare(Feed lhs, Feed rhs)
-			{
-				if (lhs.getDate() == rhs.getDate())
-					return 1;
-				return rhs.getDate() > lhs.getDate() ? 1 : -1;
-			}
-		});
-		try
-		{
-			String res = executePostRequest(FEED_URL, null, true);
-			JSONObject obj = new JSONObject(res);
+            @Override
+            public int compare(Feed lhs, Feed rhs)
+            {
+                if (lhs.getDate() == rhs.getDate())
+                    return 1;
+                return rhs.getDate() > lhs.getDate() ? 1 : -1;
+            }
+        });
+        try
+        {
+            String res = executePostRequest(FEED_URL, null, true);
+            JSONObject obj = new JSONObject(res);
 
-			JSONArray arr = obj.getJSONArray("twitter_feeds");
-			for (int i = 0; i < arr.length(); i++)
-			{
-				JSONObject js = arr.getJSONObject(i);
-				Feed f = new Feed();
-				f.setType(Feed.FEED_TW);
-				f.setDate(parseDate(true, js.getString("created_at")));
-				f.setImage(js.getJSONObject("user").optString(
-						"profile_image_url"));
-				f.setLink(js.optString("tweet_url"));
-				f.setMsg(js.optString("text"));
-				f.setTitle(js.getJSONObject("user").optString("name"));
+            JSONArray arr = obj.getJSONArray("twitter_feeds");
+            for (int i = 0; i < arr.length(); i++)
+            {
+                JSONObject js = arr.getJSONObject(i);
+                Feed f = new Feed();
+                f.setType(Feed.FEED_TW);
+                f.setDate(parseDate(true, js.getString("created_at")));
+                f.setImage(js.getJSONObject("user").optString(
+                        "profile_image_url"));
+                f.setLink(js.optString("tweet_url"));
+                f.setMsg(js.optString("text"));
+                f.setTitle(js.getJSONObject("user").optString("name"));
 
-				al.add(f);
-			}
+                al.add(f);
+            }
 
-			arr = obj.getJSONArray("fb_feeds");
-			for (int i = 0; i < arr.length(); i++)
-			{
-				JSONObject js = arr.getJSONObject(i);
-				Feed f = new Feed();
-				f.setType(Feed.FEED_FB);
-				f.setDate(parseDate(false, js.getString("created_time")));
-				f.setImage(js.optString("picture"));
-				f.setLink(js.optString("link"));
-				f.setMsg(js.optString("message"));
-				f.setTitle(js.optString(""));
+            arr = obj.getJSONArray("fb_feeds");
+            for (int i = 0; i < arr.length(); i++)
+            {
+                JSONObject js = arr.getJSONObject(i);
+                Feed f = new Feed();
+                f.setType(Feed.FEED_FB);
+                f.setDate(parseDate(false, js.getString("created_time")));
+                f.setImage(js.optString("picture"));
+                f.setLink(js.optString("link"));
+                f.setMsg(js.optString("message"));
+                f.setTitle(js.optString(""));
 
-				al.add(f);
-			}
+                al.add(f);
+            }
 
-			arr = obj.getJSONArray("instagram_feeds");
-			for (int i = 0; i < arr.length(); i++)
-			{
-				JSONObject js = arr.getJSONObject(i);
-				Feed f = new Feed();
-				f.setType(Feed.FEED_IG);
-				f.setDate(Long.parseLong(js.getString("created_time")) * 1000);
-				f.setImage(js.optJSONObject("images")
-						.getJSONObject("low_resolution").getString("url"));
-				f.setLink(js.optString("link"));
-				f.setMsg(js.optString("text"));
-				if (Commons.isEmpty(f.getMsg()))
-					f.setMsg("@"
-							+ js.optJSONObject("user").getString("username"));
-				f.setTitle(js.optJSONObject("user").getString("full_name"));
+            arr = obj.getJSONArray("instagram_feeds");
+            for (int i = 0; i < arr.length(); i++)
+            {
+                JSONObject js = arr.getJSONObject(i);
+                Feed f = new Feed();
+                f.setType(Feed.FEED_IG);
+                f.setDate(Long.parseLong(js.getString("created_time")) * 1000);
+                f.setImage(js.optJSONObject("images")
+                        .getJSONObject("low_resolution").getString("url"));
+                f.setLink(js.optString("link"));
+                f.setMsg(js.optString("text"));
+                if (Commons.isEmpty(f.getMsg()))
+                    f.setMsg("@"
+                            + js.optJSONObject("user").getString("username"));
+                f.setTitle(js.optJSONObject("user").getString("full_name"));
 
-				al.add(f);
-			}
+                al.add(f);
+            }
 
-		} catch (Exception e)
-		{
-			e.printStackTrace();
-		}
-		return new ArrayList<Feed>(al);
-	}
+        } catch (Exception e)
+        {
+            e.printStackTrace();
+        }
+        return new ArrayList<Feed>(al);
+    }
+
+    public static ArrayList<MemberResource> getMemberResourceList()
+    {
+        TreeSet<MemberResource> al = new TreeSet<MemberResource>(new Comparator<MemberResource>() {
+
+            @Override
+            public int compare(MemberResource lhs, MemberResource rhs)
+            {
+                if (lhs.getDate() == rhs.getDate())
+                    return 1;
+                return rhs.getDate() > lhs.getDate() ? 1 : -1;
+            }
+        });
+        try
+        {
+            String res = executePostRequest(MEMBER_RESOURCE_URL, null, true);
+            JSONObject obj = new JSONObject(res);
+
+            JSONArray arr = obj.getJSONArray("twitter_feeds");
+            for (int i = 0; i < arr.length(); i++)
+            {
+                JSONObject js = arr.getJSONObject(i);
+                MemberResource f = new MemberResource();
+                f.setType(MemberResource.FEED_TW);
+                f.setDate(parseDate(true, js.getString("created_at")));
+                f.setImage(js.getJSONObject("user").optString(
+                        "profile_image_url"));
+                f.setLink(js.optString("tweet_url"));
+                f.setMsg(js.optString("text"));
+                f.setTitle(js.getJSONObject("user").optString("name"));
+
+                al.add(f);
+            }
+
+        } catch (Exception e)
+        {
+            e.printStackTrace();
+        }
+        return new ArrayList<MemberResource>(al);
+    }
 
 	/**
 	 * Gets the events by month.

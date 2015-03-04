@@ -36,8 +36,11 @@ public class WebAccess
 	/** The Constant PAGING. */
 	protected static final String PAGING = "page/@@/pagesize/$$";
 
-	/** The Constant FEED_URL. */
-	protected static final String FEED_URL = "webservices/tweet-fb.php";
+    /** The Constant FEED_URL. */
+    protected static final String FEED_URL = "webservices/tweet-fb.php";
+
+    /** The Constant MEMBER_RESOURCE_URL. */
+    protected static final String MEMBER_RESOURCE_URL = "webservices/tweet-fb.php";
 	
 	/** The Constant EVENT_LIST_URL. */
 	protected static final String EVENT_LIST_URL = "api/getEvents/";

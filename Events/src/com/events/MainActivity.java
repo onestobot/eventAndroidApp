@@ -24,6 +24,7 @@ import com.events.custom.CustomFragment;
 import com.events.model.Data;
 import com.events.ui.About;
 import com.events.ui.FeedList;
+import com.events.ui.MemberResourceList;
 import com.events.ui.LeftNavAdapter;
 import com.events.ui.More;
 import com.events.ui.MyTickets;
@@ -137,8 +138,10 @@ public class MainActivity extends CustomActivity
 		ArrayList<Data> al = new ArrayList<Data>();
 		al.add(new Data("Program", R.drawable.ic_nav1, R.drawable.ic_nav1_sel));
 		al.add(new Data("Feed", R.drawable.ic_nav2, R.drawable.ic_nav2_sel));
-		al.add(new Data("My Program", R.drawable.ic_nav3,
-				R.drawable.ic_nav3_sel));
+        al.add(new Data("My Program", R.drawable.ic_nav3,
+                R.drawable.ic_nav3_sel));
+        al.add(new Data("Member Resources", R.drawable.ic_nav3,
+                R.drawable.ic_nav3_sel));
 		al.add(new Data("More", R.drawable.ic_nav4, R.drawable.ic_nav4_sel));
 		al.add(new Data("About", R.drawable.ic_nav5, R.drawable.ic_nav5_sel));
 		al.add(new Data("Rate this app", R.drawable.ic_nav6,
@@ -194,17 +197,22 @@ public class MainActivity extends CustomActivity
 			f = new MyTickets();
 			pos = 2;
 		}
-		else if (pos == 3)
+        else if (pos == 3)
+        {
+            title = getString(R.string.member_resources);
+            f = new MemberResourceList();
+        }
+		else if (pos == 4)
 		{
 			title = getString(R.string.more);
 			f = new More();
 		}
-		else if (pos == 4)
+		else if (pos == 5)
 		{
 			title = getString(R.string.about);
 			f = new About();
 		}
-		else if (pos == 5)
+		else if (pos == 6)
 		{
 			Intent i = new Intent(Intent.ACTION_VIEW,
 					Uri.parse("market://details?id=" + getPackageName()));
